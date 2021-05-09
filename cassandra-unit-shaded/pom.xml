@@ -5,10 +5,11 @@
         <artifactId>cassandra-unit-parent</artifactId>
         <version>4.3.1.1-SNAPSHOT</version>
     </parent>
-    <artifactId>cassandra-unit-shaded</artifactId>
+    <artifactId>cassandra-unit-shaded-hack</artifactId>
     <description>Shaded version of cassandra-unit</description>
     <properties>
         <shade.prefix>org.cassandraunit.shaded</shade.prefix>
+        <netty.version>4.1.60.Final</netty.version>
     </properties>
 
     <build>
@@ -120,6 +121,11 @@
     </profiles>
 
     <dependencies>
+        <dependency>
+          <groupId>io.netty</groupId>
+          <artifactId>netty-handler</artifactId>
+          <version>${netty.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.cassandraunit</groupId>
             <artifactId>cassandra-unit</artifactId>
